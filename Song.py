@@ -6,4 +6,4 @@ class Song:
         self.popularity = popularity
 
     def __str__(self):
-        return f"name: {self.name}"
+        return f"name: {self.name} - popularity: {self.popularity}"
