@@ -1,5 +1,6 @@
 import glob
 import json
+import logging
 
 from Album import Album
 from Artitst import Artist
@@ -23,6 +24,7 @@ class SongLoader:
         song = Song(track['id'], track['name'], track['popularity'])
         self.data.songs[track['id']] = song
         self.load_album(track, song)
+        logging.info(f"loaded song {track['id']} to data successfully.")
 
     def load_album(self, track, song):
         album_dict = track['album']

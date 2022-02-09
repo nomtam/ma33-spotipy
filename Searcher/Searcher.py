@@ -15,8 +15,7 @@ class Searcher:
         for album in albums:
             for song in list(album.songs.values()):
                 artist_songs.append(song)
-        return list(sorted(artist_songs, key=lambda song: song.popularity, reverse=True))[:10]
+        return list(sorted( artist_songs, key=lambda song: song.popularity, reverse=True))[:10]
 
     def get_album_songs(self, album_id):
         return self.data.albums[album_id].songs
-{}

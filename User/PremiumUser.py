@@ -1,10 +1,12 @@
-from PlayList import PlayList
+from PlayList.PlayList import PlayList
+from Searcher.Searcher import Searcher
 
 
-class User:
-    def __init__(self, playlists={}):
+class PremiumUser:
+    def __init__(self, user_name,playlists={}):
         self.playlists = playlists
-
+        self.user_name = user_name
+        self.searcher = Searcher
     def add_playlist(self, playlist: PlayList):
         if playlist.name in self.playlists.keys():
             raise PlayListExistsException("this playlist's name is taken")
@@ -13,4 +15,8 @@ class User:
 
 
 class PlayListExistsException(Exception):
+    pass
+
+
+class RestrictedUser(Exception):
     pass
