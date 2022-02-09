@@ -2,6 +2,7 @@ import glob
 import json
 import logging
 
+from Logger import Logger
 from Music.Album import Album
 from Music.Artitst import Artist
 from Music.Song import Song
@@ -14,8 +15,9 @@ class SongLoader:
 
     def load_songs_in_directory(self, path):
         files_path = glob.glob(f"{path}/*.json")
-        for path in files_path:
-            self.load_song(path)
+        for file_path in files_path:
+            self.load_song(file_path)
+        logging.info(f"loaded songs in directory in {path} to data successfully.")
 
     def load_song(self, path):
         file = open(path, 'r')
@@ -24,7 +26,7 @@ class SongLoader:
         song = Song(track['id'], track['name'], track['popularity'])
         self.data.songs[track['id']] = song
         self.load_album(track, song)
-        logging.info(f"loaded song {track['id']} to data successfully.")
+        Logger.logger.info(f"loaded song {track['id']} to data successfully.")
 
     def load_album(self, track, song):
         album_dict = track['album']
