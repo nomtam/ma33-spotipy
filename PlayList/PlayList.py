@@ -3,5 +3,5 @@ class PlayList:
         self.name = name
         self.songs = songs
 
-    def add_song_to_playlist(self, playlist, song):
-        self.playlists[playlist].songs[song.unique_id] = song
+    def add_song_to_playlist(self, song):
+        self.songs[song.unique_id] = song

@@ -2,10 +2,10 @@ import glob
 import json
 import logging
 
-from Album import Album
-from Artitst import Artist
-from Song import Song
-from Data import Data
+from Music.Album import Album
+from Music.Artitst import Artist
+from Music.Song import Song
+from Music.Data import Data
 
 
 class SongLoader:

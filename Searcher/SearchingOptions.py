@@ -1,7 +1,6 @@
 class SearchingOptions:
     @staticmethod
     def get_all_artists(data):
-        r = data.artists
         return data.artists
 
     @staticmethod

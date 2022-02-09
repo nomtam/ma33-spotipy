@@ -1,6 +1,7 @@
 import logging
 
 from Limiter.PlayListAmountLimiter import PlayListAmountLimiter
+from Limiter.PlayListSizeLimiter import PlayListSizeLimiter
 from PlayList.LimitedPlayList import LimitedPlayList, RestrictedPlayListException
 from PlayList.PlayList import PlayList
 from Searcher.LimitedSearcher import LimitedSearcher
@@ -11,12 +12,11 @@ class FreeUser(PremiumUser):
     def __init__(self, user_name, playlists={}):
         super().__init__(user_name, playlists)
         self.searcher = LimitedSearcher
-        if not all(isinstance(playlist, LimitedPlayList) for playlist in list(playlists.values())):
-            raise RestrictedPlayListException("you gave one or more playlists with too much songs for a free user.")
-        PlayListAmountLimiter(self,5).limit()
+        for playlist in playlists:
+            PlayListSizeLimiter(20).limit(playlist)
+        PlayListAmountLimiter(self, 5).limit()
 
     def add_playlist(self, playlist: PlayList):
-        if not isinstance(playlist, LimitedPlayList):
-            raise RestrictedPlayListException("the playlist has too much songs for a free user.")
+        PlayListSizeLimiter(20).limit(playlist)
         super().add_playlist(playlist)
-        PlayListAmountLimiter(self,5).limit()
+        PlayListAmountLimiter(self, 5).limit()
