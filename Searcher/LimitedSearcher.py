@@ -2,11 +2,10 @@ import itertools
 
 
 class LimitedSearcher:
-    def __init__(self,data):
-        self.limit = 5
-
-    def limited_search(self, func, *args):
+    @staticmethod
+    def search(func, *args):
         def wrapper():
-            return dict(itertools.islice(func(*args).items(), self.limit))
+            r = dict(itertools.islice(func(*args).items(), 5))
+            return dict(itertools.islice(func(*args).items(), 5))
 
         return wrapper()

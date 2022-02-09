@@ -1,4 +1,11 @@
+from Searcher import SearchingOptions
+
+
 class Application:
-    def __init__(self,user,data):
+    def __init__(self, user, data):
         self.user = user
-        self.searcher = self.user.searcher(data)
+        self.data = data
+        self.searcher = self.user.searcher
+
+    def search(self, searching_option,*args):
+        return self.searcher.search(searching_option,self.data,*args)
