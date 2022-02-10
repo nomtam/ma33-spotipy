@@ -1,10 +1,10 @@
 class SearchingOptions:
     @staticmethod
     def get_all_artists(data):
-        return data.artists
+        return list(data.artists.values())
 
     @staticmethod
-    def get_artist_songs(data, artist_id):
+    def get_artist_albums(data, artist_id):
         albums = data.artists[artist_id].albums.values()
         return [album.name for album in albums]
 

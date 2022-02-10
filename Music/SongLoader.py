@@ -2,7 +2,7 @@ import glob
 import json
 import logging
 
-from Logger import Logger
+from Loggs.Logger import Logger
 from Music.Album import Album
 from Music.Artitst import Artist
 from Music.Song import Song

@@ -1,2 +1,2 @@
 songs_path = 'Songs'
-logs_path  = 'logs.log'
+logs_path = 'Loggs/logs.log'

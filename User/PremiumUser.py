@@ -1,4 +1,4 @@
-from Logger import Logger
+from Loggs.Logger import Logger
 from PlayList.PlayList import PlayList
 from Searcher.RegularSearcher import RegularSearcher
 

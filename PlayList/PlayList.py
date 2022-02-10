@@ -1,4 +1,4 @@
-from Logger import Logger
+from Loggs.Logger import Logger
 
 
 class PlayList:
