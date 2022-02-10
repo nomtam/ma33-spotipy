@@ -13,7 +13,7 @@ class UsersSystem:
         if user.user_name in self.users.keys():
             raise UserNameTakenException(f"{user.user_name} is taken by another user.")
         with open(self.file_location, 'a') as users_file:
-            users_file.write(json.dumps({'user_name': user.user_name, 'type': user.type}))
+            users_file.write(json.dumps({'user_name': user.user_name, 'type': user.type}) + "\n")
 
     def login(self, user_name):
         if user_name in self.users.keys():

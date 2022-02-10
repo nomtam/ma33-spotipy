@@ -52,6 +52,3 @@ def search_func(preset_user, data):
     searcher = Searcher(preset_user, data)
     res = searcher.search(SearchingOptions.get_all_artists)
     print(res)
-
-
-
