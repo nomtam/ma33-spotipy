@@ -1,10 +1,7 @@
 import configuration
-from LoginMenu import LoginMenu
+from Menus.LoginMenu import LoginMenu
 from Music.Data import Data
-from PlayList.PlayList import PlayList
-from Searcher.Searcher import *
 from Music.SongLoader import SongLoader
-from Searcher.SearchingOptions import SearchingOptions
 from User.FreeUser import FreeUser
 from User.UsersSystem import UsersSystem
 

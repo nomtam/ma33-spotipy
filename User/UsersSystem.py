@@ -1,8 +1,7 @@
 import json
 
-import SearchAPI
 import configuration
-from OptionsMenu import OptionsMenu
+from Menus.UIMenu import UIMenu
 
 
 class UsersSystem:
@@ -19,8 +18,8 @@ class UsersSystem:
     def login(self, user_name):
         if user_name in self.users.keys():
             print(
-                f"hello {user_name}! welcome to spotipy. you can now use our api.\n here is a menu with your options")
-            OptionsMenu(self.users[user_name]).show_options_menu()
+                f"hello {user_name}! welcome to spotipy. you can now choose the UI.")
+            UIMenu(self.users[user_name]).show_UIMenu()
         else:
             raise UserDoesntExistsException(f"user:{user_name} dose not exists in the system.")
 
