@@ -9,6 +9,7 @@ class FreeUser(PremiumUser):
     def __init__(self, user_name, playlists={}):
         super().__init__(user_name, playlists)
         self.searcher = LimitedSearcher
+        self.type = 'free'
         for playlist in playlists:
             PlayListSizeLimiter(20).limit(playlist)
         PlayListAmountLimiter(self, 5).limit()

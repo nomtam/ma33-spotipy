@@ -8,6 +8,7 @@ class PremiumUser:
         self.playlists = playlists
         self.user_name = user_name
         self.searcher = RegularSearcher
+        self.type = 'premium'
 
     def add_playlist(self, playlist: PlayList):
         if playlist.name in self.playlists.keys():

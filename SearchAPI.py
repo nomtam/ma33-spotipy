@@ -46,4 +46,5 @@ def get_album_songs(user, album_id):
     return json.dumps([song.__dict__ for song_id, song in songs.items()])
 
 
-app.run()
+def start_api():
+    app.run()
