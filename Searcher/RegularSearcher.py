@@ -1,3 +1,4 @@
+# CR: why do you need this?
 class RegularSearcher:
     @staticmethod
     def search(func, *args):

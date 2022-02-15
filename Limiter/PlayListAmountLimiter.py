@@ -1,3 +1,4 @@
+# CR: same like the second class
 class PlayListAmountLimiter:
     def __init__(self, user, limit):
         self.amount_limit = limit
@@ -10,5 +11,6 @@ class PlayListAmountLimiter:
                 f"you have a {self.user.type} user that is limited to {self.amount_limit} songs.")
 
 
+# CR: same as all other exceptions
 class PlayListAmountRestrictedException(Exception):
     pass

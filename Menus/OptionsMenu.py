@@ -1,5 +1,6 @@
 from consolemenu import *
 from consolemenu.items import *
+# CR: unused
 import consolemenu
 
 import configuration
@@ -18,7 +19,9 @@ class OptionsMenu:
     def __init__(self, user):
         self.user = user
 
+    # CR: for me some methods here show as errors and not used well. Maybe it's the lib version
     def show_options_menu(self):
+        # CR: error from pycharm
         options_menu = ConsoleMenu("spotipy-options")
         search_options = ConsoleMenu("search-options")
         data = Data()
@@ -37,7 +40,9 @@ users = {
 }
 
 
+# CR: shadowing the var user... Bad practice
 def add_new_playlist(user, data):
+    # CR: Why not use the console menu?
     playlist = PlayList(input("enter playlist name:"))
     print("enter s when you want to stop entering new songs")
     ans = input("enter song id: ")
@@ -51,4 +56,5 @@ def add_new_playlist(user, data):
 def search_func(preset_user, data):
     searcher = Searcher(preset_user, data)
     res = searcher.search(SearchingOptions.get_all_artists)
+    # CR: why print and not use console-menu?
     print(res)

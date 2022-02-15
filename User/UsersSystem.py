@@ -26,15 +26,28 @@ class UsersSystem:
     def load_users(self):
         users = {}
         try:
+            # CR:
+            """
+            If you would have made a good json format. For example:
+            { "users": [
+                    {"user_name": "tomer", "type": "free"},
+                    {"user_name": "guy", "type": "free"},
+                    {"user_name": "elad", "type": "premium"}
+                    ] 
+            you could load all in one line with json.load
+            """
             with open(self.file_location, 'r') as users_file:
                 for line in users_file:
                     user_dic = json.loads(line)
+                    # CR: config. also, if you do what i suggestted above you could do this with list comprehension
                     users[user_dic['user_name']] = user_dic
         except IOError:
+            # CR: and what the IOERror is because the file is corrupted? Bad exception handling.
             pass  # no users in the system yet
         return users
 
 
+# CR: exceptions should be in a exception module
 class UserDoesntExistsException(Exception):
     pass
 

@@ -2,6 +2,7 @@ from Loggs.Logger import Logger
 
 
 class PlayList:
+    # CR: same about init with =None
     def __init__(self, name, songs={}):
         self.name = name
         self.songs = songs
